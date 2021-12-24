@@ -1,22 +1,20 @@
 import { Module } from "@nestjs/common";
 import { APP_FILTER, APP_INTERCEPTOR } from "@nestjs/core";
 import { LoggingInterceptor } from "@common/interceptors/logging.interceptor";
-import { ConfigModule } from "@nestjs/config";
-import { TypeOrmModule } from "@nestjs/typeorm";
-import { Connection } from "typeorm";
-import { TypeOrmModuleConfig } from "@config";
-import { HubModule } from "./modules/hub/hub.module";
 import { BadRequestExceptionFilter } from "./common/filters/bad-request-exception.filter";
-import { TypeOrmConfigService } from "./config/modules/typeorm/typeorm.config.service";
+import { NetworkModule } from "./modules/network/network.module";
+import { MempoolModule } from "./modules/mempool/mempool.module";
+import { ConstructionModule } from "./modules/construction/construction.module";
+import { BlockModule } from "./modules/block/block.module";
+import { AccountModule } from "./modules/account/account.module";
 
 @Module({
     imports: [
-        TypeOrmModule.forRootAsync({
-            imports: [ConfigModule.forFeature(TypeOrmModuleConfig)],
-            useClass: TypeOrmConfigService
-        }),
-        /** ------------------ */
-        HubModule
+        NetworkModule,
+        MempoolModule,
+        ConstructionModule,
+        BlockModule,
+        AccountModule
     ],
     controllers: [],
     providers: [
@@ -31,5 +29,5 @@ import { TypeOrmConfigService } from "./config/modules/typeorm/typeorm.config.se
     ]
 })
 export class AppModule {
-    constructor(private connection: Connection) {}
+    constructor() { }
 }

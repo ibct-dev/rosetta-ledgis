@@ -6,8 +6,6 @@ import {
     transports,
     LoggerOptions
 } from "winston";
-import rTracer from "cls-rtracer";
-import moment from "moment";
 
 const { splat, json, timestamp, align, printf } = format;
 
@@ -35,12 +33,10 @@ const config = {
 };
 
 const logFormat = printf(info => {
-    const rid = rTracer.id();
     return JSON.stringify({
         timestamp: info.timestamp,
         context: info.context,
         level: info.level,
-        requestId: rid,
         userId: info.userId,
         query: info.query,
         variables: info.variables,
@@ -52,18 +48,13 @@ const logFormat = printf(info => {
 });
 
 const loggerOptions: LoggerOptions = {
-    // level: "error",
-    // levels: config.levels,
     format: format.combine(
         json(),
         timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
         align(),
         splat(),
-        // prettyPrint(),
-        // colorize(),
         logFormat
     ),
-    // defaultMeta: { service: "user-service" },
     transports: [
         //
         // - Write to all logs with level `info` and below to `combined.log`
@@ -73,38 +64,7 @@ const loggerOptions: LoggerOptions = {
         new transports.Console({
             level: "debug",
             handleExceptions: true
-        }),
-        new transports.File({
-            filename: `logs/info/${moment().format("YYYY-MM-DD")}`,
-            level: "info",
-            handleExceptions: true,
-            zippedArchive: true // TODO: 압축에 따른 CPU 오버헤드 고려해보기
-        }),
-        new transports.File({
-            filename: `logs/error/${moment().format("YYYY-MM-DD")}`,
-            level: "error",
-            handleExceptions: true,
-            zippedArchive: true // TODO: 압축에 따른 CPU 오버헤드 고려해보기
-        }),
-        new transports.File({
-            filename: `logs/warn/${moment().format("YYYY-MM-DD")}`,
-            level: "warn",
-            handleExceptions: true,
-            zippedArchive: true // TODO: 압축에 따른 CPU 오버헤드 고려해보기
-        }),
-        new transports.File({
-            filename: `logs/debug/${moment().format("YYYY-MM-DD")}`,
-            level: "debug",
-            handleExceptions: true,
-            zippedArchive: true // TODO: 압축에 따른 CPU 오버헤드 고려해보기
-        }),
-        new transports.File({
-            filename: `logs/verbose/${moment().format("YYYY-MM-DD")}`,
-            level: "verbose",
-            handleExceptions: true,
-            zippedArchive: true // TODO: 압축에 따른 CPU 오버헤드 고려해보기
         })
-        // new transports.File({ filename: 'src/logs/combined.log' })
     ],
     exitOnError: false
 };

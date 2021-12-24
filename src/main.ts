@@ -7,17 +7,10 @@ import helmet from "helmet";
 import morgan from "morgan";
 import rateLimit from "express-rate-limit";
 import rTracer from "cls-rtracer";
-import {
-    initializeTransactionalContext,
-    patchTypeORMRepositoryWithBaseRepository
-} from "typeorm-transactional-cls-hooked";
 import { config } from "@config";
 import { BadRequestExceptionFilter } from "./common/filters/bad-request-exception.filter";
 import { errorStream, logger } from "./config/modules/winston";
 import { TimeoutInterceptor } from "./common/interceptors/timeout.interceptor";
-
-initializeTransactionalContext();
-patchTypeORMRepositoryWithBaseRepository();
 
 async function bootstrap() {
     try {

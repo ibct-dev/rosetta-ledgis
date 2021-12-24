@@ -3,11 +3,6 @@ import { config as _config } from "dotenv";
 _config({ path: __dirname + "/../../.env" });
 (process as any).send = process.send || function () {};
 
-import TypeOrmModuleConfig from "./modules/typeorm";
-import { loggerConfig } from "./modules/logger";
-
-export { TypeOrmModuleConfig, loggerConfig };
-
 export const config = {
     // Base
     isProduction: process.env.NODE_ENV === "production",
