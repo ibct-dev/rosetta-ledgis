@@ -1,3 +1,3 @@
-import { DiscardHubDto } from "./discard-hub.dto";
+import { GetListBodyDto } from "./get-list.body.dto";
 
-export { DiscardHubDto };
+export { GetListBodyDto };

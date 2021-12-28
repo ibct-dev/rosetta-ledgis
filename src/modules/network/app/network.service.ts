@@ -1,6 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { CommandBus, QueryBus } from "@nestjs/cqrs";
-import { HealthCheckQuery } from "../domain/queries/impl";
+import { GetListBodyDto } from "../domain/dtos";
+import { GetListQuery, HealthCheckQuery } from "../domain/queries/impl";
 
 @Injectable()
 export class NetworkService {
@@ -17,4 +18,14 @@ export class NetworkService {
             throw error;
         }
     }
+
+    public async getList(args: GetListBodyDto): Promise<any> {
+        try {
+            const result = await this._queryBus.execute(new GetListQuery(args));
+            return result;
+        } catch (error) {
+            throw error;
+        }
+    }
+
 }
