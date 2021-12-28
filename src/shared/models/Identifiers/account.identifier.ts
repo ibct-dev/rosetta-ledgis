@@ -1,8 +1,8 @@
-import { IsString } from "class-validator";
+import { IsNotEmpty } from "class-validator";
 import { SubAccountIdentifier } from ".";
 
 export class AccountIdentifier {
-    @IsString()
+    @IsNotEmpty()
     address: number;
 
     sub_account?: SubAccountIdentifier;

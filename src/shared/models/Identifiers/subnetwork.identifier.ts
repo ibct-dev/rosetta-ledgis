@@ -1,7 +1,7 @@
-import { IsString } from "class-validator";
+import { IsNotEmpty } from "class-validator";
 
 export class SubNetworkIdentifier {
-    @IsString()
+    @IsNotEmpty()
     network: string;
 
     metadata?: any;

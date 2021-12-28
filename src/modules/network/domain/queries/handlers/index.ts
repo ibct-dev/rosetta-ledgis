@@ -1,4 +1,4 @@
 import { HealthCheckHandler } from "./healthcheck.handler";
-import { GetListHandler } from "./get-list.handler"
+import { NetworkListHandler } from "./network-list.handler"
 
-export const QueryHandlers = [HealthCheckHandler, GetListHandler];
+export const QueryHandlers = [HealthCheckHandler, NetworkListHandler];

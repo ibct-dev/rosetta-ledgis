@@ -1,7 +1,7 @@
-import { IsString } from "class-validator";
+import { IsNotEmpty } from "class-validator";
 
 export class CoinIdentifier {
-    @IsString()
+    @IsNotEmpty()
     identifier: string;
 
     public static of(params: Partial<CoinIdentifier>): CoinIdentifier {

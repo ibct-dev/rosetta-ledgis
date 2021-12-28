@@ -1,4 +1,4 @@
 import { HealthCheckQuery } from "./healthcheck.query";
-import { GetListQuery } from "./get-list.query";
+import { NetworkListQuery } from "./network-list.query";
 
-export { HealthCheckQuery, GetListQuery };
+export { HealthCheckQuery, NetworkListQuery };

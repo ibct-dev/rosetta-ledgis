@@ -1,7 +1,7 @@
-import { IsNumber } from "class-validator";
+import { IsNotEmpty } from "class-validator";
 
 export class OperationIdentifier {
-    @IsNumber()
+    @IsNotEmpty()
     index: number;
 
     network_index?: number;

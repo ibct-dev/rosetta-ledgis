@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Inject, Post } from "@nestjs/common";
-import { GetListBodyDto } from "../domain/dtos";
+import { MetadataRequestDto, NetworkListResponseDto } from "../domain/dtos";
 import { NetworkService } from "./network.service";
 
 @Controller("network")
@@ -20,9 +20,9 @@ export class NetworkController {
     }
 
     @Post("list")
-    async getList(@Body() args: GetListBodyDto): Promise<any> {
+    async networkList(@Body() args: MetadataRequestDto): Promise<NetworkListResponseDto> {
         try {
-            const result = await this._service.getList(args);
+            const result = await this._service.networkList(args);
             return result;
         } catch (error: any) {
             console.error(error.message);

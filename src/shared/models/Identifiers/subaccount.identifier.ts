@@ -1,7 +1,7 @@
-import { IsString } from "class-validator";
+import { IsNotEmpty } from "class-validator";
 
 export class SubAccountIdentifier {
-    @IsString()
+    @IsNotEmpty()
     address: string;
 
     metadata?: any;

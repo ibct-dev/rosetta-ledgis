@@ -1,7 +1,7 @@
-import { IsString } from "class-validator";
+import { IsNotEmpty } from "class-validator";
 
 export class TransactionIdentifier {
-    @IsString()
+    @IsNotEmpty()
     hash: string;
 
     public static of(params: Partial<TransactionIdentifier>): TransactionIdentifier {

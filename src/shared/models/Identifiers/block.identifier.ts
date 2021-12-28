@@ -1,10 +1,10 @@
-import { IsNumber, IsString } from "class-validator";
+import { IsNotEmpty } from "class-validator";
 
 export class BlockIdentifier {
-    @IsNumber()
+    @IsNotEmpty()
     index: number;
 
-    @IsString()
+    @IsNotEmpty()
     hash: string;
 
     public static of(params: Partial<BlockIdentifier>): BlockIdentifier {

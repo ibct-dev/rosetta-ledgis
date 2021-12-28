@@ -1,26 +1,29 @@
 import { Inject } from "@nestjs/common";
 import { QueryHandler, IQueryHandler } from "@nestjs/cqrs";
-import { RosettaError } from "@src/shared/models/error";
-import { NotFoundException } from "@src/shared/models/error/http.error";
+import { NetworkIdentifier } from "@src/shared/models/Identifiers";
 import { LedgisService } from "@src/shared/services";
-import { GetListQuery } from "../impl";
+import { NetworkListResponseDto } from "../../dtos";
+import { NetworkListQuery } from "../impl";
 
-@QueryHandler(GetListQuery)
-export class GetListHandler implements IQueryHandler<GetListQuery> {
+@QueryHandler(NetworkListQuery)
+export class NetworkListHandler implements IQueryHandler<NetworkListQuery> {
     constructor(
         @Inject("LedgisService")
         private readonly _ledgisService: LedgisService
     ) { }
 
-    async execute(command: GetListQuery) {
-        try{
+    async execute(command: NetworkListQuery) {
+        try {
             const { args } = command;
             const { metadata } = args;
-    
+
             const info = await this._ledgisService.getinfo();
-    
-            const result = { network_identifiers: [] };
-            const identifier = {
+
+            const result: NetworkListResponseDto = {
+                network_identifiers: []
+            };
+
+            const identifier: NetworkIdentifier = {
                 blockchain: "ledgis",
                 network: "mainnet",
                 sub_network_identifier: {
@@ -31,10 +34,11 @@ export class GetListHandler implements IQueryHandler<GetListQuery> {
                     }
                 }
             }
+
             result.network_identifiers.push(identifier);
 
             return result;
-        } catch(error){
+        } catch (error) {
             throw error
         }
     }

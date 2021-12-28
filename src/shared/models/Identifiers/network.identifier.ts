@@ -1,11 +1,11 @@
-import { IsString } from "class-validator";
+import { IsNotEmpty } from "class-validator";
 import { SubNetworkIdentifier } from ".";
 
 export class NetworkIdentifier {
-    @IsString()
+    @IsNotEmpty()
     blockchain: string;
 
-    @IsString()
+    @IsNotEmpty()
     network: string;
 
     sub_network_identifier?: SubNetworkIdentifier;
