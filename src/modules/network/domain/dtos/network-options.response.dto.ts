@@ -1,8 +1,9 @@
+import { Version } from "@src/shared/models/objects";
 import { IsNotEmpty } from "class-validator";
 
 export class NetworkOptionsResponseDto {
     @IsNotEmpty()
-    version: any/*Version*/;
+    version: Version;
 
     @IsNotEmpty()
     allow: any/*Allow*/;

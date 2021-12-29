@@ -8,5 +8,6 @@ import { PublicKey } from "./publickey.object"
 import { Signature } from "./signature.object"
 import { RelatedTransaction } from "./related-transaction.object"
 import { CoinChange } from "./coinchange.object"
+import { Version } from "./version.object"
 
-export { Block, Transaction, Operation, Amount, Currency, SigningPayload, PublicKey, Signature, RelatedTransaction, CoinChange }
+export { Block, Transaction, Operation, Amount, Currency, SigningPayload, PublicKey, Signature, RelatedTransaction, CoinChange, Version }

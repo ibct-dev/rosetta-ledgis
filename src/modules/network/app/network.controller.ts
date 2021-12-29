@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Inject, Post } from "@nestjs/common";
-import { MetadataRequestDto, NetworkListResponseDto } from "../domain/dtos";
+import { MetadataRequestDto, NetworkListResponseDto, NetworkOptionsResponseDto, NetworkRequestDto } from "../domain/dtos";
 import { NetworkService } from "./network.service";
 
 @Controller("network")
@@ -29,4 +29,16 @@ export class NetworkController {
             throw error;
         }
     }
+
+    @Post("options")
+    async networkOptions(@Body() args: NetworkRequestDto): Promise<NetworkOptionsResponseDto> {
+        try {
+            const result = await this._service.networkOptions(args);
+            return result;
+        } catch (error: any) {
+            console.error(error.message);
+            throw error;
+        }
+    }
+
 }

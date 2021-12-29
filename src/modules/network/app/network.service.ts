@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { CommandBus, QueryBus } from "@nestjs/cqrs";
-import { MetadataRequestDto, NetworkListResponseDto } from "../domain/dtos";
-import { HealthCheckQuery, NetworkListQuery } from "../domain/queries/impl";
+import { MetadataRequestDto, NetworkListResponseDto, NetworkOptionsResponseDto, NetworkRequestDto } from "../domain/dtos";
+import { HealthCheckQuery, NetworkListQuery, NetworkOptionsQuery } from "../domain/queries/impl";
 
 @Injectable()
 export class NetworkService {
@@ -27,5 +27,15 @@ export class NetworkService {
             throw error;
         }
     }
+
+    public async networkOptions(args: NetworkRequestDto): Promise<NetworkOptionsResponseDto> {
+        try {
+            const result = await this._queryBus.execute(new NetworkOptionsQuery(args));
+            return result;
+        } catch (error) {
+            throw error;
+        }
+    }
+
 
 }
