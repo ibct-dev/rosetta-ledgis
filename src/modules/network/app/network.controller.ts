@@ -41,4 +41,15 @@ export class NetworkController {
         }
     }
 
+    @Post("status")
+    async networkStatus(@Body() args: any): Promise<any> {
+        try {
+            const result = "";
+            // const result = await this._service.networkOptions(args);
+            return result;
+        } catch (error: any) {
+            console.error(error.message);
+            throw error;
+        }
+    }
 }
