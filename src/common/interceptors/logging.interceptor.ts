@@ -11,14 +11,19 @@ import { tap } from "rxjs/operators";
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {
     intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
-        logger.info("[rosetta-ledgis] Before...");
+        const {
+            url,
+            method,
+        } = context.switchToHttp().getRequest();
+
+        logger.info(`[rosetta-ledgis] [${method}] [${url}] Before...`);
 
         const now = Date.now();
         return next
             .handle()
             .pipe(
                 tap(() =>
-                    logger.info(`[rosetta-ledgis] After... ${Date.now() - now}ms`)
+                    logger.info(`[rosetta-ledgis] [${method}] [${url}] After... ${Date.now() - now}ms`)
                 )
             );
     }

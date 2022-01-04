@@ -3,6 +3,8 @@ import { config as _config } from "dotenv";
 _config({ path: __dirname + "/../../.env" });
 (process as any).send = process.send || function () {};
 
+import LedgisModuleConfig from "./modules/ledgis";
+
 export const config = {
     // Base
     isProduction: process.env.NODE_ENV === "production",
@@ -15,3 +17,7 @@ export const config = {
     port: parseInt(process.env.PORT) || 8000,
     rateLimitMax: process.env.RATE_LIMIT_MAX || 10000
 };
+
+export {
+    LedgisModuleConfig
+}
