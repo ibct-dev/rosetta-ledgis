@@ -3,7 +3,9 @@ import { MempoolService } from "./mempool.service";
 
 @Controller("mempool")
 export class MempoolController {
-    constructor(@Inject("MempoolService") private readonly _service: MempoolService) { }
+    constructor(
+        @Inject("MempoolService") private readonly _service: MempoolService
+    ) {}
 
     @Get()
     async getMempool(): Promise<any> {

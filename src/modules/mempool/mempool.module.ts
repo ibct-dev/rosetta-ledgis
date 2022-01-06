@@ -5,9 +5,7 @@ import { MempoolService } from "./app/mempool.service";
 import { QueryHandlers } from "./domain/queries/handlers";
 
 @Module({
-    imports: [
-        CqrsModule,
-    ],
+    imports: [CqrsModule],
     providers: [
         { provide: "MempoolService", useClass: MempoolService },
         ...QueryHandlers

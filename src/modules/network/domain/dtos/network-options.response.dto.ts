@@ -1,4 +1,4 @@
-import { Version } from "@src/shared/models/objects";
+import { Allow, Version } from "@src/shared/models/objects";
 import { IsNotEmpty } from "class-validator";
 
 export class NetworkOptionsResponseDto {
@@ -6,9 +6,11 @@ export class NetworkOptionsResponseDto {
     version: Version;
 
     @IsNotEmpty()
-    allow: any/*Allow*/;
+    allow: Allow;
 
-    public static of(params: Partial<NetworkOptionsResponseDto>): NetworkOptionsResponseDto {
+    public static of(
+        params: Partial<NetworkOptionsResponseDto>
+    ): NetworkOptionsResponseDto {
         const networkOptionsResponseDto = new NetworkOptionsResponseDto();
         Object.assign(networkOptionsResponseDto, params);
         return networkOptionsResponseDto;

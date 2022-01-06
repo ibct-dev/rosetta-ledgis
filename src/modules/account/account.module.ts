@@ -5,9 +5,7 @@ import { AccountService } from "./app/account.service";
 import { QueryHandlers } from "./domain/queries/handlers";
 
 @Module({
-    imports: [
-        CqrsModule,
-    ],
+    imports: [CqrsModule],
     providers: [
         { provide: "AccountService", useClass: AccountService },
         ...QueryHandlers

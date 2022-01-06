@@ -6,4 +6,12 @@ import { TransactionIdentifier } from "./transaction.identifier";
 import { AccountIdentifier } from "./account.identifier";
 import { SubAccountIdentifier } from "./subaccount.identifier";
 
-export { NetworkIdentifier, SubNetworkIdentifier, BlockIdentifier, OperationIdentifier, TransactionIdentifier, AccountIdentifier, SubAccountIdentifier }
+export {
+    NetworkIdentifier,
+    SubNetworkIdentifier,
+    BlockIdentifier,
+    OperationIdentifier,
+    TransactionIdentifier,
+    AccountIdentifier,
+    SubAccountIdentifier
+};

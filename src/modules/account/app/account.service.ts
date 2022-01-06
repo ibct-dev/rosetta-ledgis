@@ -7,7 +7,7 @@ export class AccountService {
     constructor(
         private readonly _commandBus: CommandBus,
         private readonly _queryBus: QueryBus
-    ) { }
+    ) {}
 
     public async healthCheck(): Promise<any> {
         try {

@@ -3,7 +3,10 @@ import { ConstructionService } from "./construction.service";
 
 @Controller("construction")
 export class ConstructionController {
-    constructor(@Inject("ConstructionService") private readonly _service: ConstructionService) {}
+    constructor(
+        @Inject("ConstructionService")
+        private readonly _service: ConstructionService
+    ) {}
 
     @Get()
     async healthCheck(): Promise<any> {

@@ -5,5 +5,5 @@ export default registerAs("ledgis", () => ({
     privateKeys: process.env.LEDGIS_PRIVATE_KEYS
         ? process.env.LEDGIS_PRIVATE_KEYS.split(" ")
         : [],
-    hasuraEndpoint: process.env.LEDGIS_HASURA_ENDPOINT || "",
+    hasuraEndpoint: process.env.LEDGIS_HASURA_ENDPOINT || ""
 }));

@@ -29,5 +29,5 @@ import { AccountModule } from "./modules/account/account.module";
     ]
 })
 export class AppModule {
-    constructor() { }
+    constructor() {}
 }

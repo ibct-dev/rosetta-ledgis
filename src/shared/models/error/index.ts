@@ -1,5 +1,3 @@
-import { RosettaError } from "./rosetta.error"
+import { RosettaError } from "./rosetta.error";
 
-export {
-    RosettaError
-}
+export { RosettaError };

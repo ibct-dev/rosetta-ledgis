@@ -3,7 +3,9 @@ import { AccountService } from "./account.service";
 
 @Controller("account")
 export class AccountController {
-    constructor(@Inject("AccountService") private readonly _service: AccountService) { }
+    constructor(
+        @Inject("AccountService") private readonly _service: AccountService
+    ) {}
 
     @Get()
     async healthCheck(): Promise<any> {
@@ -38,5 +40,4 @@ export class AccountController {
             throw error;
         }
     }
-
 }

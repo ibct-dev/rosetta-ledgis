@@ -5,9 +5,7 @@ import { BlockService } from "./app/block.service";
 import { QueryHandlers } from "./domain/queries/handlers";
 
 @Module({
-    imports: [
-        CqrsModule,
-    ],
+    imports: [CqrsModule],
     providers: [
         { provide: "BlockService", useClass: BlockService },
         ...QueryHandlers

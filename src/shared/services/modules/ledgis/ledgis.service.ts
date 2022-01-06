@@ -22,7 +22,7 @@ export class LedgisService {
 
     constructor(
         @Inject(LedgisModuleConfig.KEY)
-        private readonly _config: ConfigType<typeof LedgisModuleConfig>,
+        private readonly _config: ConfigType<typeof LedgisModuleConfig>
     ) {
         this.hasura = new GraphQLClient(this._config.hasuraEndpoint, {
             // headers: { "x-hasura-role": "anonymous" },
@@ -37,9 +37,9 @@ export class LedgisService {
             rpc: this.rpc,
             signatureProvider,
             textDecoder: new TextDecoder(),
-            textEncoder: new TextEncoder(),
+            textEncoder: new TextEncoder()
         });
-        this.init().catch(() => {});
+        this.init().catch(() => { });
     }
 
     private async init() {
@@ -61,10 +61,18 @@ export class LedgisService {
         return await this.hasura.request<T1>(print(args.query), args.variables);
     }
 
-
-    public async getinfo(): Promise<any> {
+    public async getInfo(): Promise<any> {
         try {
             const result = await this.rpc.get_info();
+            return result;
+        } catch (error) {
+            return error;
+        }
+    }
+
+    public async getBlock(blockNumber: number): Promise<any> {
+        try {
+            const result = await this.rpc.get_block(blockNumber);
             return result;
         } catch (error) {
             return error;

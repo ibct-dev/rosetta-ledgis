@@ -6,7 +6,9 @@ export class SubAccountIdentifier {
 
     metadata?: any;
 
-    public static of(params: Partial<SubAccountIdentifier>): SubAccountIdentifier {
+    public static of(
+        params: Partial<SubAccountIdentifier>
+    ): SubAccountIdentifier {
         const subAccountIdentifier = new SubAccountIdentifier();
         Object.assign(subAccountIdentifier, params);
         return subAccountIdentifier;

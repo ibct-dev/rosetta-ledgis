@@ -10,14 +10,14 @@ export class NetworkListHandler implements IQueryHandler<NetworkListQuery> {
     constructor(
         @Inject("LedgisService")
         private readonly _ledgisService: LedgisService
-    ) { }
+    ) {}
 
     async execute(command: NetworkListQuery) {
         try {
             const { args } = command;
             const { metadata } = args;
 
-            const info = await this._ledgisService.getinfo();
+            const info = await this._ledgisService.getInfo();
 
             const result: NetworkListResponseDto = {
                 network_identifiers: []
@@ -33,13 +33,13 @@ export class NetworkListHandler implements IQueryHandler<NetworkListQuery> {
                         producer: info.head_block_producer
                     }
                 }
-            }
+            };
 
             result.network_identifiers.push(identifier);
 
             return result;
         } catch (error) {
-            throw error
+            throw error;
         }
     }
 }

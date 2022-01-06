@@ -8,9 +8,9 @@ import { LedgisModuleConfig } from "@config";
     providers: [
         {
             provide: "LedgisService",
-            useClass: LedgisService,
-        },
+            useClass: LedgisService
+        }
     ],
-    exports: ["LedgisService"],
+    exports: ["LedgisService"]
 })
 export class LedgisModule {}

@@ -3,7 +3,9 @@ import { BlockService } from "./block.service";
 
 @Controller("block")
 export class BlockController {
-    constructor(@Inject("BlockService") private readonly _service: BlockService) { }
+    constructor(
+        @Inject("BlockService") private readonly _service: BlockService
+    ) {}
 
     @Get()
     async getBlock(): Promise<any> {
