@@ -5,6 +5,7 @@ import { OperationIdentifier } from "./operation.identifier";
 import { TransactionIdentifier } from "./transaction.identifier";
 import { AccountIdentifier } from "./account.identifier";
 import { SubAccountIdentifier } from "./subaccount.identifier";
+import { PartialBlockIdentifier } from "./partial-block.identifier";
 
 export {
     NetworkIdentifier,
@@ -13,5 +14,6 @@ export {
     OperationIdentifier,
     TransactionIdentifier,
     AccountIdentifier,
-    SubAccountIdentifier
+    SubAccountIdentifier,
+    PartialBlockIdentifier
 };

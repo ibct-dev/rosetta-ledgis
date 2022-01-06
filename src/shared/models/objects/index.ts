@@ -14,6 +14,7 @@ import { BalanceExemption } from "./balance-exemption.object";
 import { Allow } from "./allow.object";
 import { SyncStatus } from "./sync-status.object";
 import { Peer } from "./peer.object";
+import { Coin } from "./coin.object"
 
 export {
     Block,

@@ -99,8 +99,15 @@ export class LedgisService {
                 const [amount, symbolName] = b.split(" ");
                 return { amount, symbolName };
             })
-            .filter(({ symbolName }) => symbolName !== "LED");
 
         return result;
+    }
+
+    public async getCurrencyStat(symbol: string): Promise<any> {
+        const stats = await this.rpc.get_currency_stats(
+            "led.token",
+            symbol
+        );
+        return stats;
     }
 }
