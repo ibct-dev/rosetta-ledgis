@@ -8,7 +8,7 @@ export class NotFoundException extends RosettaError {
 }
 
 export class BadRequestException extends RosettaError {
-    constructor(message: string, description: string, detail?: any) {
+    constructor(message: string, description?: string, detail?: any) {
         super(HttpStatus.BAD_REQUEST, message, description, detail);
     }
 }

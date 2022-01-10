@@ -1,3 +1,7 @@
-import { HealthCheckQuery } from "./healthcheck.query";
+import { GetBlockQuery } from "./get-block.query";
+import { GetBlockTransactionQuery } from "./get-blocktrx.query";
 
-export { HealthCheckQuery };
+export {
+    GetBlockQuery,
+    GetBlockTransactionQuery
+}

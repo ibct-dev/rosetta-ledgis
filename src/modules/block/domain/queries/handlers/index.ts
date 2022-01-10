@@ -1,3 +1,4 @@
-import { HealthCheckHandler } from "./healthcheck.handler";
+import { GetBlockTransactionHandler } from "./get-blocktrx.handler";
+import { GetBlockHandler } from "./get-block.handler";
 
-export const QueryHandlers = [HealthCheckHandler];
+export const QueryHandlers = [GetBlockHandler, GetBlockTransactionHandler];
