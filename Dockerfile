@@ -1,5 +1,5 @@
 # Step 1
-FROM node:14.17-alpine3.14 AS builder
+FROM node:17.3.1 AS builder
 
 LABEL maintainer "Cute_Wisp <sweatpotato13@gmail.com>"
 
