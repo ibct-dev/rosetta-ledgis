@@ -20,7 +20,6 @@ export class NetworkController {
             const result = await this._service.healthCheck();
             return result;
         } catch (error: any) {
-            console.error(error.message);
             throw error;
         }
     }
@@ -33,7 +32,6 @@ export class NetworkController {
             const result = await this._service.networkList(args);
             return result;
         } catch (error: any) {
-            console.error(error.message);
             throw error;
         }
     }
@@ -46,7 +44,6 @@ export class NetworkController {
             const result = await this._service.networkOptions(args);
             return result;
         } catch (error: any) {
-            console.error(error.message);
             throw error;
         }
     }
@@ -59,7 +56,6 @@ export class NetworkController {
             const result = await this._service.networkStatus(args);
             return result;
         } catch (error: any) {
-            console.error(error.message);
             throw error;
         }
     }
