@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { CommandBus, QueryBus } from "@nestjs/cqrs";
 import { NetworkRequestDto } from "@src/modules/network/domain/dtos";
 import { MempoolResponseDto, MempoolTransactionRequestDto, MempoolTransactionResponseDto } from "../domain/dtos";
-import { HealthCheckQuery } from "../domain/queries/impl";
+import { GetAllMempoolTrxQuery, GetMempoolTrxQuery, HealthCheckQuery } from "../domain/queries/impl";
 
 @Injectable()
 export class MempoolService {
@@ -22,7 +22,7 @@ export class MempoolService {
 
     public async getAllMempoolTrx(args: NetworkRequestDto): Promise<MempoolResponseDto> {
         try {
-            const result = await this._queryBus.execute(new HealthCheckQuery());
+            const result = await this._queryBus.execute(new GetAllMempoolTrxQuery(args));
             return result;
         } catch (error) {
             throw error;
@@ -31,7 +31,7 @@ export class MempoolService {
 
     public async getMempoolTrx(args: MempoolTransactionRequestDto): Promise<MempoolTransactionResponseDto> {
         try {
-            const result = await this._queryBus.execute(new HealthCheckQuery());
+            const result = await this._queryBus.execute(new GetMempoolTrxQuery(args));
             return result;
         } catch (error) {
             throw error;

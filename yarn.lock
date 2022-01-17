@@ -2823,13 +2823,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:7.2.0, commander@npm:^7.2.0":
-  version: 7.2.0
-  resolution: "commander@npm:7.2.0"
-  checksum: 53501cbeee61d5157546c0bef0fedb6cdfc763a882136284bed9a07225f09a14b82d2a84e7637edfd1a679fb35ed9502fd58ef1d091e6287f60d790147f68ddc
-  languageName: node
-  linkType: hard
-
 "commander@npm:^2.20.0":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
@@ -2841,6 +2834,13 @@ __metadata:
   version: 6.2.1
   resolution: "commander@npm:6.2.1"
   checksum: d7090410c0de6bc5c67d3ca41c41760d6d268f3c799e530aafb73b7437d1826bbf0d2a3edac33f8b57cc9887b4a986dce307fa5557e109be40eadb7c43b21742
+  languageName: node
+  linkType: hard
+
+"commander@npm:^7.2.0":
+  version: 7.2.0
+  resolution: "commander@npm:7.2.0"
+  checksum: 53501cbeee61d5157546c0bef0fedb6cdfc763a882136284bed9a07225f09a14b82d2a84e7637edfd1a679fb35ed9502fd58ef1d091e6287f60d790147f68ddc
   languageName: node
   linkType: hard
 
@@ -3448,19 +3448,6 @@ __metadata:
   version: 3.1.0
   resolution: "detect-newline@npm:3.1.0"
   checksum: ae6cd429c41ad01b164c59ea36f264a2c479598e61cba7c99da24175a7ab80ddf066420f2bec9a1c57a6bead411b4655ff15ad7d281c000a89791f48cbe939e7
-  languageName: node
-  linkType: hard
-
-"devmoji@npm:^2.3.0":
-  version: 2.3.0
-  resolution: "devmoji@npm:2.3.0"
-  dependencies:
-    chalk: ^4.1.1
-    commander: 7.2.0
-    ts-interface-checker: 1.0.0
-  bin:
-    devmoji: bin/devmoji.js
-  checksum: 8b13866422085ac6834ffcd66fc342bb56b3128d0909647c00b475d29e11be83e6035f7ffcfeca3bcfec7299a0d3e3b3b84265993885d1aff33e3fc5467f2687
   languageName: node
   linkType: hard
 
@@ -7006,7 +6993,6 @@ __metadata:
     class-validator: ^0.13.1
     cls-rtracer: ^2.6.0
     cross-fetch: ^3.1.4
-    devmoji: ^2.3.0
     dotenv: ^10.0.0
     eosjs: ^22.1.0
     eslint: 7.27.0
@@ -9172,13 +9158,6 @@ __metadata:
   version: 1.3.0
   resolution: "triple-beam@npm:1.3.0"
   checksum: 7d7b77d8625fb252c126c24984a68de462b538a8fcd1de2abd0a26421629cf3527d48e23b3c2264f08f4a6c3bc40a478a722176f4d7b6a1acc154cb70c359f2b
-  languageName: node
-  linkType: hard
-
-"ts-interface-checker@npm:1.0.0":
-  version: 1.0.0
-  resolution: "ts-interface-checker@npm:1.0.0"
-  checksum: 3cf0b6037f3ccd6f6df1c963ce4dcff4ab540129b24d4f662b4df82abdd287276b2795824221b4bc1ae68244f03f37de90458f256e94e9de572d00ddaa023ff7
   languageName: node
   linkType: hard
 
