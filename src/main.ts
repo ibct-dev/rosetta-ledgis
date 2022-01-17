@@ -11,6 +11,7 @@ import { config } from "@config";
 import { BadRequestExceptionFilter } from "./common/filters/bad-request-exception.filter";
 import { errorStream, logger } from "./config/modules/winston";
 import { TimeoutInterceptor } from "./common/interceptors/timeout.interceptor";
+import { ErrorFilter } from "./common/filters/errors.filter";
 
 async function bootstrap() {
     try {
@@ -19,7 +20,7 @@ async function bootstrap() {
             {}
         );
         app.useGlobalPipes(new ValidationPipe());
-        app.useGlobalFilters(new BadRequestExceptionFilter());
+        app.useGlobalFilters(new ErrorFilter())
         app.useGlobalInterceptors(new TimeoutInterceptor());
         app.use(helmet());
 

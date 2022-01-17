@@ -5,7 +5,9 @@ export class NetworkListResponseDto {
     @IsNotEmpty()
     network_identifiers: NetworkIdentifier[];
 
-    public static of(params: Partial<NetworkListResponseDto>): NetworkListResponseDto {
+    public static of(
+        params: Partial<NetworkListResponseDto>
+    ): NetworkListResponseDto {
         const networkListResponseDto = new NetworkListResponseDto();
         Object.assign(networkListResponseDto, params);
         return networkListResponseDto;

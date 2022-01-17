@@ -6,10 +6,7 @@ import { NetworkService } from "./app/network.service";
 import { QueryHandlers } from "./domain/queries/handlers";
 
 @Module({
-    imports: [
-        LedgisModule,
-        CqrsModule,
-    ],
+    imports: [LedgisModule, CqrsModule],
     providers: [
         { provide: "NetworkService", useClass: NetworkService },
         ...QueryHandlers

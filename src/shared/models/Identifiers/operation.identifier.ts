@@ -6,7 +6,9 @@ export class OperationIdentifier {
 
     network_index?: number;
 
-    public static of(params: Partial<OperationIdentifier>): OperationIdentifier {
+    public static of(
+        params: Partial<OperationIdentifier>
+    ): OperationIdentifier {
         const operationIdentifier = new OperationIdentifier();
         Object.assign(operationIdentifier, params);
         return operationIdentifier;

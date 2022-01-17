@@ -1,3 +1,9 @@
-import { DiscardHubDto } from "./discard-hub.dto";
+import { BlockRequestDto } from "./block.request.dto";
+import { BlockTransactionRequestDto } from "./block-trx.request.dto";
 
-export { DiscardHubDto };
+import { BlockResponseDto } from "./block.response.dto";
+import { BlockTransactionResponseDto } from "./block-trx.response.dto";
+
+export { BlockRequestDto, BlockTransactionRequestDto };
+
+export { BlockResponseDto, BlockTransactionResponseDto }

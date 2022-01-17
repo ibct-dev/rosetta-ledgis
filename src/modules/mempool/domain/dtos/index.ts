@@ -1,3 +1,11 @@
-import { DiscardHubDto } from "./discard-hub.dto";
+import { MempoolTransactionRequestDto } from "./mempool-trx.request";
 
-export { DiscardHubDto };
+import { MempoolResponseDto } from "./mempool.response";
+import { MempoolTransactionResponseDto } from "./mempool-trx.response";
+
+export { MempoolTransactionRequestDto };
+
+export {
+    MempoolResponseDto,
+    MempoolTransactionResponseDto
+}

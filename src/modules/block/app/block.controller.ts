@@ -1,14 +1,17 @@
-import { Body, Controller, Get, Inject, Post } from "@nestjs/common";
+import { Body, Controller, Inject, Post } from "@nestjs/common";
+import { BlockRequestDto, BlockResponseDto, BlockTransactionRequestDto, BlockTransactionResponseDto } from "../domain/dtos";
 import { BlockService } from "./block.service";
 
 @Controller("block")
 export class BlockController {
-    constructor(@Inject("BlockService") private readonly _service: BlockService) { }
+    constructor(
+        @Inject("BlockService") private readonly _service: BlockService
+    ) { }
 
-    @Get()
-    async getBlock(): Promise<any> {
+    @Post()
+    async getBlock(@Body() args: BlockRequestDto): Promise<BlockResponseDto> {
         try {
-            const result = await this._service.healthCheck();
+            const result = await this._service.getBlock(args);
             return result;
         } catch (error) {
             throw error;
@@ -16,10 +19,9 @@ export class BlockController {
     }
 
     @Post("transaction")
-    async blockTransaction(@Body() args: any): Promise<any> {
+    async getBlockTransaction(@Body() args: BlockTransactionRequestDto): Promise<BlockTransactionResponseDto> {
         try {
-            const result = "";
-            // const result = await this._service.networkOptions(args);
+            const result = await this._service.getBlockTransaction(args);
             return result;
         } catch (error: any) {
             console.error(error.message);

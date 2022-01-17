@@ -19,7 +19,7 @@ export class Operation {
     amount?: Amount;
 
     coin_change?: CoinChange;
-    
+
     metadata?: any;
 
     public static of(params: Partial<Operation>): Operation {

@@ -6,7 +6,9 @@ export class SubNetworkIdentifier {
 
     metadata?: any;
 
-    public static of(params: Partial<SubNetworkIdentifier>): SubNetworkIdentifier {
+    public static of(
+        params: Partial<SubNetworkIdentifier>
+    ): SubNetworkIdentifier {
         const subNetworkIdentifier = new SubNetworkIdentifier();
         Object.assign(subNetworkIdentifier, params);
         return subNetworkIdentifier;

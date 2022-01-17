@@ -15,9 +15,9 @@ export const config = {
     // Server
     host: process.env.HOST || "0.0.0.0",
     port: parseInt(process.env.PORT) || 8000,
-    rateLimitMax: process.env.RATE_LIMIT_MAX || 10000
+    rateLimitMax: process.env.RATE_LIMIT_MAX || 10000,
+    version: process.env.VERSION || "0.0.1",
+    nodeVersion: process.env.NODE_VERSION || "14.17-alpine3.14"
 };
 
-export {
-    LedgisModuleConfig
-}
+export { LedgisModuleConfig };

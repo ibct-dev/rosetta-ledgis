@@ -3,7 +3,7 @@ import { SubAccountIdentifier } from ".";
 
 export class AccountIdentifier {
     @IsNotEmpty()
-    address: number;
+    address: string;
 
     sub_account?: SubAccountIdentifier;
 
