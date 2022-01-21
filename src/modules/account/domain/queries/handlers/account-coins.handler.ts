@@ -12,11 +12,16 @@ export class AccountCoinsHandler implements IQueryHandler<AccountCoinsQuery> {
     constructor(
         @Inject("LedgisService")
         private readonly _ledgisService: LedgisService
-    ) { }
+    ) {}
 
     async execute(command: AccountCoinsQuery) {
         const { args } = command;
-        const { network_identifier, account_identifier, include_mempool, currencies } = args;
+        const {
+            network_identifier,
+            account_identifier,
+            include_mempool,
+            currencies
+        } = args;
 
         if (
             network_identifier.blockchain == "ledgis" &&
@@ -27,8 +32,8 @@ export class AccountCoinsHandler implements IQueryHandler<AccountCoinsQuery> {
             result.block_identifier = new BlockIdentifier();
             result.block_identifier = {
                 hash: `0x${info.head_block_id}`,
-                index: info.head_block_num,
-            }
+                index: info.head_block_num
+            };
             const lists = [];
             if (!currencies) {
                 lists.push("LED");
@@ -37,21 +42,25 @@ export class AccountCoinsHandler implements IQueryHandler<AccountCoinsQuery> {
                     lists.push(currency.symbol);
                 }
             }
-            const coins = await this._ledgisService.getBalance(account_identifier.address);
-            result.coins = coins.map(balance => {
-                return {
-                    coin_identifier: {
-                        identifier: "led.token",
-                    },
-                    amount: {
-                        value: balance.amount,
-                        currency: {
-                            symbol: balance.symbolName,
-                            decimals: balance.amount.split(".")[1].length,
+            const coins = await this._ledgisService.getBalance(
+                account_identifier.address
+            );
+            result.coins = coins
+                .map(balance => {
+                    return {
+                        coin_identifier: {
+                            identifier: "led.token"
                         },
-                    }
-                }
-            }).filter(it => lists.includes(it.amount.currency.symbol));
+                        amount: {
+                            value: balance.amount,
+                            currency: {
+                                symbol: balance.symbolName,
+                                decimals: balance.amount.split(".")[1].length
+                            }
+                        }
+                    };
+                })
+                .filter(it => lists.includes(it.amount.currency.symbol));
             return result;
         } else {
             throw new NotFoundException("blockchain or network not found");

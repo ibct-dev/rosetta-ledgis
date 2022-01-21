@@ -6,7 +6,7 @@ import { GetMempoolTrxQuery } from "../impl";
 
 @QueryHandler(GetMempoolTrxQuery)
 export class GetMempoolTrxHandler implements IQueryHandler<GetMempoolTrxQuery> {
-    constructor() { }
+    constructor() {}
 
     async execute(command: GetMempoolTrxQuery) {
         const { args } = command;

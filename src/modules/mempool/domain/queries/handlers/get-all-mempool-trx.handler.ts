@@ -5,8 +5,10 @@ import { MempoolResponseDto } from "../../dtos";
 import { GetAllMempoolTrxQuery } from "../impl";
 
 @QueryHandler(GetAllMempoolTrxQuery)
-export class GetAllMempoolTrxHandler implements IQueryHandler<GetAllMempoolTrxQuery> {
-    constructor() { }
+export class GetAllMempoolTrxHandler
+    implements IQueryHandler<GetAllMempoolTrxQuery>
+{
+    constructor() {}
 
     async execute(command: GetAllMempoolTrxQuery) {
         const { args } = command;

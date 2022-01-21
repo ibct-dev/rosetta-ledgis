@@ -1,4 +1,21 @@
 import { Body, Controller, Get, Inject, Post } from "@nestjs/common";
+import {
+    ConstructionCombineRequestDto,
+    ConstructionCombineResponseDto,
+    ConstructionDeriveRequestDto,
+    ConstructionDeriveResponseDto,
+    ConstructionHashRequestDto,
+    ConstructionMetadataRequestDto,
+    ConstructionMetadataResponseDto,
+    ConstructionParseRequestDto,
+    ConstructionParseResponseDto,
+    ConstructionPayloadsRequestDto,
+    ConstructionPayloadsResponseDto,
+    ConstructionPreprocessRequestDto,
+    ConstructionPreprocessResponseDto,
+    ConstructionSubmitRequestDto,
+    TransactionIdentifierResponseDto
+} from "../domain/dtos";
 import { ConstructionService } from "./construction.service";
 
 @Controller("construction")
@@ -19,10 +36,11 @@ export class ConstructionController {
     }
 
     @Post("combine")
-    async constructionCombine(@Body() args: any): Promise<any> {
+    async constructionCombine(
+        @Body() args: ConstructionCombineRequestDto
+    ): Promise<ConstructionCombineResponseDto> {
         try {
-            const result = "";
-            // const result = await this._service.networkOptions(args);
+            const result = await this._service.constructionCombine(args);
             return result;
         } catch (error: any) {
             console.error(error.message);
@@ -31,10 +49,11 @@ export class ConstructionController {
     }
 
     @Post("derive")
-    async constructionDerive(@Body() args: any): Promise<any> {
+    async constructionDerive(
+        @Body() args: ConstructionDeriveRequestDto
+    ): Promise<ConstructionDeriveResponseDto> {
         try {
-            const result = "";
-            // const result = await this._service.networkOptions(args);
+            const result = await this._service.constructionDerive(args);
             return result;
         } catch (error: any) {
             console.error(error.message);
@@ -43,10 +62,11 @@ export class ConstructionController {
     }
 
     @Post("hash")
-    async constructionHash(@Body() args: any): Promise<any> {
+    async constructionHash(
+        @Body() args: ConstructionHashRequestDto
+    ): Promise<TransactionIdentifierResponseDto> {
         try {
-            const result = "";
-            // const result = await this._service.networkOptions(args);
+            const result = await this._service.constructionHash(args);
             return result;
         } catch (error: any) {
             console.error(error.message);
@@ -55,10 +75,11 @@ export class ConstructionController {
     }
 
     @Post("metadata")
-    async constructionMetadata(@Body() args: any): Promise<any> {
+    async constructionMetadata(
+        @Body() args: ConstructionMetadataRequestDto
+    ): Promise<ConstructionMetadataResponseDto> {
         try {
-            const result = "";
-            // const result = await this._service.networkOptions(args);
+            const result = await this._service.constructionMetadata(args);
             return result;
         } catch (error: any) {
             console.error(error.message);
@@ -67,10 +88,11 @@ export class ConstructionController {
     }
 
     @Post("parse")
-    async constructionParse(@Body() args: any): Promise<any> {
+    async constructionParse(
+        @Body() args: ConstructionParseRequestDto
+    ): Promise<ConstructionParseResponseDto> {
         try {
-            const result = "";
-            // const result = await this._service.networkOptions(args);
+            const result = await this._service.constructionParse(args);
             return result;
         } catch (error: any) {
             console.error(error.message);
@@ -79,10 +101,11 @@ export class ConstructionController {
     }
 
     @Post("payloads")
-    async constructionPayloads(@Body() args: any): Promise<any> {
+    async constructionPayloads(
+        @Body() args: ConstructionPayloadsRequestDto
+    ): Promise<ConstructionPayloadsResponseDto> {
         try {
-            const result = "";
-            // const result = await this._service.networkOptions(args);
+            const result = await this._service.constructionPayloads(args);
             return result;
         } catch (error: any) {
             console.error(error.message);
@@ -91,10 +114,11 @@ export class ConstructionController {
     }
 
     @Post("preprocess")
-    async constructionPreprocess(@Body() args: any): Promise<any> {
+    async constructionPreprocess(
+        @Body() args: ConstructionPreprocessRequestDto
+    ): Promise<ConstructionPreprocessResponseDto> {
         try {
-            const result = "";
-            // const result = await this._service.networkOptions(args);
+            const result = await this._service.constructionPreprocess(args);
             return result;
         } catch (error: any) {
             console.error(error.message);
@@ -103,10 +127,11 @@ export class ConstructionController {
     }
 
     @Post("submit")
-    async constructionSubmit(@Body() args: any): Promise<any> {
+    async constructionSubmit(
+        @Body() args: ConstructionSubmitRequestDto
+    ): Promise<TransactionIdentifierResponseDto> {
         try {
-            const result = "";
-            // const result = await this._service.networkOptions(args);
+            const result = await this._service.constructionSubmit(args);
             return result;
         } catch (error: any) {
             console.error(error.message);

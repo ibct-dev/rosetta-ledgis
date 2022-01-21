@@ -39,7 +39,7 @@ export class LedgisService {
             textDecoder: new TextDecoder(),
             textEncoder: new TextEncoder()
         });
-        this.init().catch(() => { });
+        this.init().catch(() => {});
     }
 
     private async init() {
@@ -94,20 +94,16 @@ export class LedgisService {
             accountName
         );
 
-        const result = balances
-            .map(b => {
-                const [amount, symbolName] = b.split(" ");
-                return { amount, symbolName };
-            })
+        const result = balances.map(b => {
+            const [amount, symbolName] = b.split(" ");
+            return { amount, symbolName };
+        });
 
         return result;
     }
 
     public async getCurrencyStat(symbol: string): Promise<any> {
-        const stats = await this.rpc.get_currency_stats(
-            "led.token",
-            symbol
-        );
+        const stats = await this.rpc.get_currency_stats("led.token", symbol);
         return stats;
     }
 }

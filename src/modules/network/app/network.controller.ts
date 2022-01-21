@@ -12,7 +12,7 @@ import { NetworkService } from "./network.service";
 export class NetworkController {
     constructor(
         @Inject("NetworkService") private readonly _service: NetworkService
-    ) { }
+    ) {}
 
     @Get()
     async healthCheck(): Promise<any> {

@@ -8,16 +8,22 @@ import { AccountBalanceResponseDto } from "../../dtos";
 import { AccountBalanceQuery } from "../impl";
 
 @QueryHandler(AccountBalanceQuery)
-export class AccountBalanceHandler implements IQueryHandler<AccountBalanceQuery> {
+export class AccountBalanceHandler
+    implements IQueryHandler<AccountBalanceQuery>
+{
     constructor(
         @Inject("LedgisService")
         private readonly _ledgisService: LedgisService
-    ) { }
-
+    ) {}
 
     async execute(command: AccountBalanceQuery) {
         const { args } = command;
-        const { network_identifier, account_identifier, block_identifier, currencies } = args;
+        const {
+            network_identifier,
+            account_identifier,
+            block_identifier,
+            currencies
+        } = args;
 
         if (
             network_identifier.blockchain == "ledgis" &&
@@ -28,8 +34,8 @@ export class AccountBalanceHandler implements IQueryHandler<AccountBalanceQuery>
             result.block_identifier = new BlockIdentifier();
             result.block_identifier = {
                 hash: `0x${info.head_block_id}`,
-                index: info.head_block_num,
-            }
+                index: info.head_block_num
+            };
             const lists = [];
             if (!currencies) {
                 lists.push("LED");
@@ -38,16 +44,20 @@ export class AccountBalanceHandler implements IQueryHandler<AccountBalanceQuery>
                     lists.push(currency.symbol);
                 }
             }
-            const balances = await this._ledgisService.getBalance(account_identifier.address);
-            result.balances = balances.map(balance => {
-                return {
-                    value: balance.amount,
-                    currency: {
-                        symbol: balance.symbolName,
-                        decimals: balance.amount.split(".")[1].length,
-                    },
-                }
-            }).filter(it => lists.includes(it.currency.symbol));
+            const balances = await this._ledgisService.getBalance(
+                account_identifier.address
+            );
+            result.balances = balances
+                .map(balance => {
+                    return {
+                        value: balance.amount,
+                        currency: {
+                            symbol: balance.symbolName,
+                            decimals: balance.amount.split(".")[1].length
+                        }
+                    };
+                })
+                .filter(it => lists.includes(it.currency.symbol));
             return result;
         } else {
             throw new NotFoundException("blockchain or network not found");

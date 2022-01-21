@@ -6,4 +6,4 @@ import { BlockTransactionResponseDto } from "./block-trx.response.dto";
 
 export { BlockRequestDto, BlockTransactionRequestDto };
 
-export { BlockResponseDto, BlockTransactionResponseDto }
+export { BlockResponseDto, BlockTransactionResponseDto };

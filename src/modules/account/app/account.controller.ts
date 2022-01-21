@@ -1,5 +1,10 @@
 import { Body, Controller, Get, Inject, Post } from "@nestjs/common";
-import { AccountBalanceRequestDto, AccountBalanceResponseDto, AccountCoinsRequestDto, AccountCoinsResponseDto } from "../domain/dtos";
+import {
+    AccountBalanceRequestDto,
+    AccountBalanceResponseDto,
+    AccountCoinsRequestDto,
+    AccountCoinsResponseDto
+} from "../domain/dtos";
 import { AccountService } from "./account.service";
 
 @Controller("account")
@@ -19,7 +24,9 @@ export class AccountController {
     }
 
     @Post("balance")
-    async accountBalance(@Body() args: AccountBalanceRequestDto): Promise<AccountBalanceResponseDto> {
+    async accountBalance(
+        @Body() args: AccountBalanceRequestDto
+    ): Promise<AccountBalanceResponseDto> {
         try {
             const result = await this._service.accountBalance(args);
             return result;
@@ -30,7 +37,9 @@ export class AccountController {
     }
 
     @Post("coins")
-    async accountCoins(@Body() args: AccountCoinsRequestDto): Promise<AccountCoinsResponseDto> {
+    async accountCoins(
+        @Body() args: AccountCoinsRequestDto
+    ): Promise<AccountCoinsResponseDto> {
         try {
             const result = await this._service.accountCoins(args);
             return result;

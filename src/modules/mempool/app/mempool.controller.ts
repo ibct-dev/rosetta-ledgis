@@ -1,6 +1,10 @@
 import { Body, Controller, Get, Inject, Post } from "@nestjs/common";
 import { NetworkRequestDto } from "@src/modules/network/domain/dtos";
-import { MempoolResponseDto, MempoolTransactionRequestDto, MempoolTransactionResponseDto } from "../domain/dtos";
+import {
+    MempoolResponseDto,
+    MempoolTransactionRequestDto,
+    MempoolTransactionResponseDto
+} from "../domain/dtos";
 import { MempoolService } from "./mempool.service";
 
 @Controller("mempool")
@@ -19,9 +23,10 @@ export class MempoolController {
         }
     }
 
-
     @Post()
-    async getMempool(@Body() args: NetworkRequestDto): Promise<MempoolResponseDto> {
+    async getMempool(
+        @Body() args: NetworkRequestDto
+    ): Promise<MempoolResponseDto> {
         try {
             const result = await this._service.getAllMempoolTrx(args);
             return result;
@@ -31,7 +36,9 @@ export class MempoolController {
     }
 
     @Post("transaction")
-    async mempoolTransaction(@Body() args: MempoolTransactionRequestDto): Promise<MempoolTransactionResponseDto> {
+    async mempoolTransaction(
+        @Body() args: MempoolTransactionRequestDto
+    ): Promise<MempoolTransactionResponseDto> {
         try {
             const result = await this._service.getMempoolTrx(args);
             return result;
