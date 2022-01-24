@@ -1,6 +1,6 @@
-import { IQuery } from "@nestjs/cqrs";
+import { ICommand } from "@nestjs/cqrs";
 import { ConstructionPreprocessRequestDto } from "../../dtos";
 
-export class ConstructionPreprocessQuery implements IQuery {
+export class ConstructionPreprocessCommand implements ICommand {
     constructor(public readonly args: ConstructionPreprocessRequestDto) {}
 }

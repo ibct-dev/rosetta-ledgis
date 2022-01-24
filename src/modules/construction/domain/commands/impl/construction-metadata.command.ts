@@ -1,6 +1,6 @@
-import { IQuery } from "@nestjs/cqrs";
+import { ICommand } from "@nestjs/cqrs";
 import { ConstructionMetadataRequestDto } from "../../dtos";
 
-export class ConstructionMetadataQuery implements IQuery {
+export class ConstructionMetadataCommand implements ICommand {
     constructor(public readonly args: ConstructionMetadataRequestDto) {}
 }

@@ -1,5 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { CommandBus, QueryBus } from "@nestjs/cqrs";
+import { ConstructionCombineCommand, ConstructionDeriveCommand, ConstructionHashCommand, ConstructionMetadataCommand, ConstructionParseCommand, ConstructionPayloadsCommand, ConstructionPreprocessCommand, ConstructionSubmitCommand } from "../domain/commands/impl";
 import {
     ConstructionCombineRequestDto,
     ConstructionCombineResponseDto,
@@ -17,24 +18,14 @@ import {
     ConstructionPreprocessResponseDto,
     ConstructionSubmitRequestDto
 } from "../domain/dtos";
-import {
-    ConstructionCombineQuery,
-    ConstructionDeriveQuery,
-    ConstructionHashQuery,
-    ConstructionMetadataQuery,
-    ConstructionParseQuery,
-    ConstructionPayloadsQuery,
-    ConstructionPreprocessQuery,
-    ConstructionSubmitQuery,
-    HealthCheckQuery
-} from "../domain/queries/impl";
+import { HealthCheckQuery } from "../domain/queries/impl";
 
 @Injectable()
 export class ConstructionService {
     constructor(
         private readonly _commandBus: CommandBus,
         private readonly _queryBus: QueryBus
-    ) {}
+    ) { }
 
     public async healthCheck(): Promise<any> {
         try {
@@ -49,8 +40,8 @@ export class ConstructionService {
         args: ConstructionCombineRequestDto
     ): Promise<ConstructionCombineResponseDto> {
         try {
-            const result = await this._queryBus.execute(
-                new ConstructionCombineQuery(args)
+            const result = await this._commandBus.execute(
+                new ConstructionCombineCommand(args)
             );
             return result;
         } catch (error) {
@@ -62,8 +53,8 @@ export class ConstructionService {
         args: ConstructionDeriveRequestDto
     ): Promise<ConstructionDeriveResponseDto> {
         try {
-            const result = await this._queryBus.execute(
-                new ConstructionDeriveQuery(args)
+            const result = await this._commandBus.execute(
+                new ConstructionDeriveCommand(args)
             );
             return result;
         } catch (error) {
@@ -75,8 +66,8 @@ export class ConstructionService {
         args: ConstructionHashRequestDto
     ): Promise<TransactionIdentifierResponseDto> {
         try {
-            const result = await this._queryBus.execute(
-                new ConstructionHashQuery(args)
+            const result = await this._commandBus.execute(
+                new ConstructionHashCommand(args)
             );
             return result;
         } catch (error) {
@@ -88,8 +79,8 @@ export class ConstructionService {
         args: ConstructionMetadataRequestDto
     ): Promise<ConstructionMetadataResponseDto> {
         try {
-            const result = await this._queryBus.execute(
-                new ConstructionMetadataQuery(args)
+            const result = await this._commandBus.execute(
+                new ConstructionMetadataCommand(args)
             );
             return result;
         } catch (error) {
@@ -101,8 +92,8 @@ export class ConstructionService {
         args: ConstructionParseRequestDto
     ): Promise<ConstructionParseResponseDto> {
         try {
-            const result = await this._queryBus.execute(
-                new ConstructionParseQuery(args)
+            const result = await this._commandBus.execute(
+                new ConstructionParseCommand(args)
             );
             return result;
         } catch (error) {
@@ -114,8 +105,8 @@ export class ConstructionService {
         args: ConstructionPayloadsRequestDto
     ): Promise<ConstructionPayloadsResponseDto> {
         try {
-            const result = await this._queryBus.execute(
-                new ConstructionPayloadsQuery(args)
+            const result = await this._commandBus.execute(
+                new ConstructionPayloadsCommand(args)
             );
             return result;
         } catch (error) {
@@ -127,8 +118,8 @@ export class ConstructionService {
         args: ConstructionPreprocessRequestDto
     ): Promise<ConstructionPreprocessResponseDto> {
         try {
-            const result = await this._queryBus.execute(
-                new ConstructionPreprocessQuery(args)
+            const result = await this._commandBus.execute(
+                new ConstructionPreprocessCommand(args)
             );
             return result;
         } catch (error) {
@@ -140,8 +131,8 @@ export class ConstructionService {
         args: ConstructionSubmitRequestDto
     ): Promise<TransactionIdentifierResponseDto> {
         try {
-            const result = await this._queryBus.execute(
-                new ConstructionSubmitQuery(args)
+            const result = await this._commandBus.execute(
+                new ConstructionSubmitCommand(args)
             );
             return result;
         } catch (error) {

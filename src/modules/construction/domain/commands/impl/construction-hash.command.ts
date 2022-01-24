@@ -1,6 +1,6 @@
-import { IQuery } from "@nestjs/cqrs";
+import { ICommand } from "@nestjs/cqrs";
 import { ConstructionHashRequestDto } from "../../dtos";
 
-export class ConstructionHashQuery implements IQuery {
+export class ConstructionHashCommand implements ICommand {
     constructor(public readonly args: ConstructionHashRequestDto) {}
 }
