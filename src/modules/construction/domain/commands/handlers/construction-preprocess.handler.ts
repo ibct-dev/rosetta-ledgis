@@ -26,10 +26,7 @@ export class ConstructionPreprocessHandler
             network_identifier.blockchain == "ledgis" &&
             network_identifier.network == "mainnet"
         ) {
-            throw new NotImplementedException("Not Implemented");
-            const result = "";
-
-            return result;
+            return new NotImplementedException("Not Supported in LEDGIS Chain");
         } else {
             throw new NotFoundException("blockchain or network not found");
         }
