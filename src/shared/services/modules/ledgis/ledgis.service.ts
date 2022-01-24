@@ -9,6 +9,7 @@ import { TransactResult } from "eosjs/dist/eosjs-api-interfaces";
 import { Contract, deserializeActionData } from "eosjs/dist/eosjs-serialize";
 import { LedgisModuleConfig } from "@src/config";
 import { ConfigType } from "@nestjs/config";
+import { PushTransactionArgs } from "eosjs/dist/eosjs-rpc-interfaces";
 
 @Injectable()
 export class LedgisService {
@@ -39,7 +40,7 @@ export class LedgisService {
             textDecoder: new TextDecoder(),
             textEncoder: new TextEncoder()
         });
-        this.init().catch(() => {});
+        this.init().catch(() => { });
     }
 
     private async init() {
@@ -105,5 +106,14 @@ export class LedgisService {
     public async getCurrencyStat(symbol: string): Promise<any> {
         const stats = await this.rpc.get_currency_stats("led.token", symbol);
         return stats;
+    }
+
+    public async pushSignedTransaction({ signatures, serializedTransaction, serializedContextFreeData }: PushTransactionArgs): Promise<any> {
+        const trx = await this.api.pushSignedTransaction({ signatures, serializedTransaction, serializedContextFreeData });
+        return trx;
+    }
+
+    public async deserializeTransaction(transaction: Uint8Array): Promise<any> {
+        return await this.api.deserializeTransaction(transaction);
     }
 }
