@@ -20,7 +20,7 @@ async function bootstrap() {
             {}
         );
         app.useGlobalPipes(new ValidationPipe());
-        app.useGlobalFilters(new ErrorFilter())
+        app.useGlobalFilters(new ErrorFilter());
         app.useGlobalInterceptors(new TimeoutInterceptor());
         app.use(helmet());
 

@@ -1,4 +1,8 @@
-import { NetworkIdentifier, PartialBlockIdentifier, TransactionIdentifier } from "@src/shared/models/Identifiers";
+import {
+    NetworkIdentifier,
+    PartialBlockIdentifier,
+    TransactionIdentifier
+} from "@src/shared/models/Identifiers";
 import { IsNotEmpty } from "class-validator";
 
 export class BlockTransactionRequestDto {
@@ -11,7 +15,9 @@ export class BlockTransactionRequestDto {
     @IsNotEmpty()
     transaction_identifier: TransactionIdentifier;
 
-    public static of(params: Partial<BlockTransactionRequestDto>): BlockTransactionRequestDto {
+    public static of(
+        params: Partial<BlockTransactionRequestDto>
+    ): BlockTransactionRequestDto {
         const blockTransactionRequestDto = new BlockTransactionRequestDto();
         Object.assign(blockTransactionRequestDto, params);
         return blockTransactionRequestDto;

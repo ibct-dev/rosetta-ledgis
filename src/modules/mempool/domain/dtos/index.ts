@@ -5,7 +5,4 @@ import { MempoolTransactionResponseDto } from "./mempool-trx.response";
 
 export { MempoolTransactionRequestDto };
 
-export {
-    MempoolResponseDto,
-    MempoolTransactionResponseDto
-}
+export { MempoolResponseDto, MempoolTransactionResponseDto };

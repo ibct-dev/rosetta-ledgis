@@ -7,8 +7,11 @@ export class MempoolTransactionResponseDto {
 
     metadata?: any;
 
-    public static of(params: Partial<MempoolTransactionResponseDto>): MempoolTransactionResponseDto {
-        const mempoolTransactionResponseDto = new MempoolTransactionResponseDto();
+    public static of(
+        params: Partial<MempoolTransactionResponseDto>
+    ): MempoolTransactionResponseDto {
+        const mempoolTransactionResponseDto =
+            new MempoolTransactionResponseDto();
         Object.assign(mempoolTransactionResponseDto, params);
         return mempoolTransactionResponseDto;
     }

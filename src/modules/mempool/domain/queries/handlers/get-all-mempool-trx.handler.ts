@@ -1,12 +1,19 @@
 import { QueryHandler, IQueryHandler } from "@nestjs/cqrs";
 import { NotFoundException } from "@src/shared/models/error/http.error";
 import { TransactionIdentifier } from "@src/shared/models/Identifiers";
+import { LedgisService } from "@src/shared/services";
+import { Inject } from "typedi";
 import { MempoolResponseDto } from "../../dtos";
 import { GetAllMempoolTrxQuery } from "../impl";
 
 @QueryHandler(GetAllMempoolTrxQuery)
-export class GetAllMempoolTrxHandler implements IQueryHandler<GetAllMempoolTrxQuery> {
-    constructor() { }
+export class GetAllMempoolTrxHandler
+    implements IQueryHandler<GetAllMempoolTrxQuery>
+{
+    constructor(
+        @Inject("LedgisService")
+        private readonly _ledgisService: LedgisService
+    ) {}
 
     async execute(command: GetAllMempoolTrxQuery) {
         const { args } = command;
@@ -17,10 +24,11 @@ export class GetAllMempoolTrxHandler implements IQueryHandler<GetAllMempoolTrxQu
             network_identifier.blockchain == "ledgis" &&
             network_identifier.network == "mainnet"
         ) {
-            // TODO: What is EOSIO mempool?
-            const object = new TransactionIdentifier();
             result.transaction_identifiers = [];
-            result.transaction_identifiers.push(object);
+            const trxHashs = await this._ledgisService.getLatestTransaction();
+            for (const trxHash of trxHashs) {
+                result.transaction_identifiers.push({hash: trxHash});
+            }
 
             return result;
         } else {

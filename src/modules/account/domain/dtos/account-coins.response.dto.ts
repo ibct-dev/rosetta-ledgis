@@ -12,7 +12,9 @@ export class AccountCoinsResponseDto {
 
     metadata?: any;
 
-    public static of(params: Partial<AccountCoinsResponseDto>): AccountCoinsResponseDto {
+    public static of(
+        params: Partial<AccountCoinsResponseDto>
+    ): AccountCoinsResponseDto {
         const accountCoinsResponseDto = new AccountCoinsResponseDto();
         Object.assign(accountCoinsResponseDto, params);
         return accountCoinsResponseDto;

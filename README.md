@@ -1,44 +1,25 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+# Rosetta-LEDGIS
 
-[travis-image]: https://api.travis-ci.org/nestjs/nest.svg?branch=master
-[travis-url]: https://travis-ci.org/nestjs/nest
-[linux-image]: https://img.shields.io/travis/nestjs/nest/master.svg?label=linux
-[linux-url]: https://travis-ci.org/nestjs/nest
-  
+![ss](https://camo.githubusercontent.com/6c78fb89dc59628336d6835c97ec6353ca6126f1cb01f2d4e33a01f8fcac5d29/68747470733a2f2f7777772e726f73657474612d6170692e6f72672f696d672f726f73657474615f6865616465722e706e67)
+
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+`Rosetta-LEDGIS` provides a reference implementation of the Rosetta API for LEDGIS Chain in Nestjs. If you haven't heard of the Rosetta API, you can find more information [here](https://www.rosetta-api.org/docs/welcome.html).
 
 ## Installation
 
 ```bash
-$ npm install
+$ yarn install
 ```
 
 ## Running the app
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+$ yarn start:prod
 ```
 
-## Test
+## Running the app with docker
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+$ docker-compose up -d
 ```

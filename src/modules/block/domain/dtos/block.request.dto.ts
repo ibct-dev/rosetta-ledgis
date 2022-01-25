@@ -1,4 +1,7 @@
-import { NetworkIdentifier, PartialBlockIdentifier } from "@src/shared/models/Identifiers";
+import {
+    NetworkIdentifier,
+    PartialBlockIdentifier
+} from "@src/shared/models/Identifiers";
 import { IsNotEmpty } from "class-validator";
 
 export class BlockRequestDto {

@@ -9,7 +9,7 @@ import { NetworkOptionsQuery } from "../impl";
 export class NetworkOptionsHandler
     implements IQueryHandler<NetworkOptionsQuery>
 {
-    constructor() { }
+    constructor() {}
 
     async execute(command: NetworkOptionsQuery) {
         try {
@@ -44,7 +44,7 @@ export class NetworkOptionsHandler
                 const version = {
                     rosetta_version: config.version,
                     node_version: config.nodeVersion
-                }
+                };
                 result.version = version;
                 result.allow.operation_statuses = operation_statuses;
                 result.allow.operation_types = operation_types;

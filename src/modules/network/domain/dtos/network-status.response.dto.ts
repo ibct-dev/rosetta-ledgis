@@ -1,6 +1,4 @@
-import {
-    BlockIdentifier,
-} from "@src/shared/models/Identifiers";
+import { BlockIdentifier } from "@src/shared/models/Identifiers";
 import { Peer, SyncStatus } from "@src/shared/models/objects";
 import { IsNotEmpty } from "class-validator";
 

@@ -11,7 +11,7 @@ export class NetworkStatusHandler implements IQueryHandler<NetworkStatusQuery> {
     constructor(
         @Inject("LedgisService")
         private readonly _ledgisService: LedgisService
-    ) { }
+    ) {}
 
     async execute(command: NetworkStatusQuery) {
         try {
@@ -25,12 +25,12 @@ export class NetworkStatusHandler implements IQueryHandler<NetworkStatusQuery> {
                 const result = new NetworkStatusResponseDto();
                 const current_block_identifier = {
                     hash: `0x${info.head_block_id}`,
-                    index: info.head_block_num,
-                }
+                    index: info.head_block_num
+                };
                 const genesis_block_identifier = {
                     hash: `0x${info.chain_id}`,
                     index: 1
-                }
+                };
                 const peers: Peer[] = [];
                 result.current_block_identifier = current_block_identifier;
                 result.current_block_timestamp = info.head_block_time;

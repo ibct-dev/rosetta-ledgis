@@ -1,3 +1,5 @@
 import { HealthCheckQuery } from "./healthcheck.query";
 
-export { HealthCheckQuery };
+export {
+    HealthCheckQuery,
+};

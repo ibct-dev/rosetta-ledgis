@@ -11,7 +11,9 @@ export class AccountBalanceResponseDto {
 
     metadata?: any;
 
-    public static of(params: Partial<AccountBalanceResponseDto>): AccountBalanceResponseDto {
+    public static of(
+        params: Partial<AccountBalanceResponseDto>
+    ): AccountBalanceResponseDto {
         const accountBalanceResponseDto = new AccountBalanceResponseDto();
         Object.assign(accountBalanceResponseDto, params);
         return accountBalanceResponseDto;

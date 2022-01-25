@@ -1,4 +1,8 @@
-import { AccountIdentifier, NetworkIdentifier, PartialBlockIdentifier } from "@src/shared/models/Identifiers";
+import {
+    AccountIdentifier,
+    NetworkIdentifier,
+    PartialBlockIdentifier
+} from "@src/shared/models/Identifiers";
 import { Currency } from "@src/shared/models/objects";
 import { IsNotEmpty } from "class-validator";
 
@@ -13,7 +17,9 @@ export class AccountBalanceRequestDto {
 
     currencies?: Currency[];
 
-    public static of(params: Partial<AccountBalanceRequestDto>): AccountBalanceRequestDto {
+    public static of(
+        params: Partial<AccountBalanceRequestDto>
+    ): AccountBalanceRequestDto {
         const accountBalanceRequestDto = new AccountBalanceRequestDto();
         Object.assign(accountBalanceRequestDto, params);
         return accountBalanceRequestDto;
