@@ -46,3 +46,5 @@ postgres-data
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+bin
