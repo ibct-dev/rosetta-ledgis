@@ -33,7 +33,7 @@ export class NetworkStatusHandler implements IQueryHandler<NetworkStatusQuery> {
                 };
                 const peers: Peer[] = [];
                 result.current_block_identifier = current_block_identifier;
-                result.current_block_timestamp = info.head_block_time;
+                result.current_block_timestamp = new Date(info.head_block_time).getTime();
                 result.genesis_block_identifier = genesis_block_identifier;
                 result.oldest_block_identifier = current_block_identifier;
                 result.peers = peers;
