@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Inject, Post } from "@nestjs/common";
+import { Body, Controller, Get, HttpCode, Inject, Post } from "@nestjs/common";
 import {
     ConstructionCombineRequestDto,
     ConstructionCombineResponseDto,
@@ -36,6 +36,7 @@ export class ConstructionController {
     }
 
     @Post("combine")
+    @HttpCode(200)
     async constructionCombine(
         @Body() args: ConstructionCombineRequestDto
     ): Promise<ConstructionCombineResponseDto> {
@@ -49,6 +50,7 @@ export class ConstructionController {
     }
 
     @Post("derive")
+    @HttpCode(200)
     async constructionDerive(
         @Body() args: ConstructionDeriveRequestDto
     ): Promise<ConstructionDeriveResponseDto> {
@@ -62,6 +64,7 @@ export class ConstructionController {
     }
 
     @Post("hash")
+    @HttpCode(200)
     async constructionHash(
         @Body() args: ConstructionHashRequestDto
     ): Promise<TransactionIdentifierResponseDto> {
@@ -75,6 +78,7 @@ export class ConstructionController {
     }
 
     @Post("metadata")
+    @HttpCode(200)
     async constructionMetadata(
         @Body() args: ConstructionMetadataRequestDto
     ): Promise<ConstructionMetadataResponseDto> {
@@ -88,6 +92,7 @@ export class ConstructionController {
     }
 
     @Post("parse")
+    @HttpCode(200)
     async constructionParse(
         @Body() args: ConstructionParseRequestDto
     ): Promise<ConstructionParseResponseDto> {
@@ -101,6 +106,7 @@ export class ConstructionController {
     }
 
     @Post("payloads")
+    @HttpCode(200)
     async constructionPayloads(
         @Body() args: ConstructionPayloadsRequestDto
     ): Promise<ConstructionPayloadsResponseDto> {
@@ -114,6 +120,7 @@ export class ConstructionController {
     }
 
     @Post("preprocess")
+    @HttpCode(200)
     async constructionPreprocess(
         @Body() args: ConstructionPreprocessRequestDto
     ): Promise<ConstructionPreprocessResponseDto> {
@@ -127,6 +134,7 @@ export class ConstructionController {
     }
 
     @Post("submit")
+    @HttpCode(200)
     async constructionSubmit(
         @Body() args: ConstructionSubmitRequestDto
     ): Promise<TransactionIdentifierResponseDto> {

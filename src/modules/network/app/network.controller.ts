@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Inject, Post } from "@nestjs/common";
+import { Body, Controller, Get, HttpCode, Inject, Post } from "@nestjs/common";
 import {
     MetadataRequestDto,
     NetworkListResponseDto,
@@ -25,6 +25,7 @@ export class NetworkController {
     }
 
     @Post("list")
+    @HttpCode(200)
     async networkList(
         @Body() args: MetadataRequestDto
     ): Promise<NetworkListResponseDto> {
@@ -37,6 +38,7 @@ export class NetworkController {
     }
 
     @Post("options")
+    @HttpCode(200)
     async networkOptions(
         @Body() args: NetworkRequestDto
     ): Promise<NetworkOptionsResponseDto> {
@@ -49,6 +51,7 @@ export class NetworkController {
     }
 
     @Post("status")
+    @HttpCode(200)
     async networkStatus(
         @Body() args: NetworkRequestDto
     ): Promise<NetworkStatusResponseDto> {

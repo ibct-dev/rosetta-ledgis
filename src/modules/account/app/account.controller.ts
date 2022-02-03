@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Inject, Post } from "@nestjs/common";
+import { Body, Controller, Get, HttpCode, Inject, Post } from "@nestjs/common";
 import {
     AccountBalanceRequestDto,
     AccountBalanceResponseDto,
@@ -24,6 +24,7 @@ export class AccountController {
     }
 
     @Post("balance")
+    @HttpCode(200)
     async accountBalance(
         @Body() args: AccountBalanceRequestDto
     ): Promise<AccountBalanceResponseDto> {
@@ -37,6 +38,7 @@ export class AccountController {
     }
 
     @Post("coins")
+    @HttpCode(200)
     async accountCoins(
         @Body() args: AccountCoinsRequestDto
     ): Promise<AccountCoinsResponseDto> {

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Inject, Post } from "@nestjs/common";
+import { Body, Controller, Get, HttpCode, Inject, Post } from "@nestjs/common";
 import { NetworkRequestDto } from "@src/modules/network/domain/dtos";
 import {
     MempoolResponseDto,
@@ -24,6 +24,7 @@ export class MempoolController {
     }
 
     @Post()
+    @HttpCode(200)
     async getMempool(
         @Body() args: NetworkRequestDto
     ): Promise<MempoolResponseDto> {
@@ -36,6 +37,7 @@ export class MempoolController {
     }
 
     @Post("transaction")
+    @HttpCode(200)
     async mempoolTransaction(
         @Body() args: MempoolTransactionRequestDto
     ): Promise<MempoolTransactionResponseDto> {

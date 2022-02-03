@@ -1,4 +1,4 @@
-import { Body, Controller, Inject, Post } from "@nestjs/common";
+import { Body, Controller, HttpCode, Inject, Post } from "@nestjs/common";
 import {
     BlockRequestDto,
     BlockResponseDto,
@@ -14,6 +14,7 @@ export class BlockController {
     ) {}
 
     @Post()
+    @HttpCode(200)
     async getBlock(@Body() args: BlockRequestDto): Promise<BlockResponseDto> {
         try {
             const result = await this._service.getBlock(args);
@@ -24,6 +25,7 @@ export class BlockController {
     }
 
     @Post("transaction")
+    @HttpCode(200)
     async getBlockTransaction(
         @Body() args: BlockTransactionRequestDto
     ): Promise<BlockTransactionResponseDto> {
